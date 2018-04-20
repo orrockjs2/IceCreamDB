@@ -19,14 +19,14 @@ CREATE TABLE Employees(
 CREATE TABLE GeneralManagers(
 	eid DECIMAL(9,0),
 	storeNum DECIMAL(4,0),
-	salary DECIMAL(6,2),
+	salary DECIMAL(8,2),
 	vacationDays DECIMAL (2,0)
 	);
 
 CREATE TABLE Hourly(
 	eid DECIMAL(9,0),
 	storeNum DECIMAL(4,0),
-	wage DECIMAL(2,2),
+	wage DECIMAL(4,2),
 	hoursWorked DECIMAL(3,2)
 	);
 
@@ -34,7 +34,7 @@ CREATE TABLE Clerical(
 	eid DECIMAL(9,0),
 	facilityNum DECIMAL(4,0),
 	jobTitle varchar(30),
-	salary DECIMAL(6,2),
+	salary DECIMAL(8,2),
 	NDAStatus ENUM('yes', 'no'),
 	vacationDays DECIMAL(2,0)
 	);
@@ -82,7 +82,7 @@ CREATE TABLE Customer(
 
 CREATE TABLE Stores(
 	storeNum DECIMAL(4,0) primary key,
-	sales DECIMAL(10,2),
+	sales DECIMAL(12,2),
 	city varchar(40)
 	);
 
