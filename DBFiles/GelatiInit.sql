@@ -19,14 +19,14 @@ CREATE TABLE Employees(
 CREATE TABLE GeneralManagers(
 	eid DECIMAL(9,0),
 	storeNum DECIMAL(4,0),
-	salary DECIMAL(8,2),
+	salary DECIMAL(6,2),
 	vacationDays DECIMAL (2,0)
 	);
 
 CREATE TABLE Hourly(
 	eid DECIMAL(9,0),
 	storeNum DECIMAL(4,0),
-	wage DECIMAL(4,2),
+	wage DECIMAL(2,2),
 	hoursWorked DECIMAL(3,2)
 	);
 
@@ -34,7 +34,7 @@ CREATE TABLE Clerical(
 	eid DECIMAL(9,0),
 	facilityNum DECIMAL(4,0),
 	jobTitle varchar(30),
-	salary DECIMAL(8,2),
+	salary DECIMAL(6,2),
 	NDAStatus ENUM('yes', 'no'),
 	vacationDays DECIMAL(2,0)
 	);
@@ -52,13 +52,20 @@ ALTER TABLE Clerical
 	add constraint
 	foreign key(eid) references Employees(eid);
 
-CREATE TABLE GelatiOrder(
+CREATE TABLE FlavorOrder(
 	orderNum DECIMAL(12,0) primary key,
 	storeNum DECIMAL(4,0),
 	dateOrdered DATE,
 	dateDue DATE,
-	flavorList BLOB,
-	materialList BLOB
+	flavorList ENUM('Chocolate', 'Vanilla','Strawberry','Coffee','Cookie Dough','Oreo','Banana', 'Coconut','Butter Pecan', 'Peanut Butter')
+	);
+    
+    CREATE TABLE MaterialOrder(
+	orderNum DECIMAL(12,0) primary key,
+	storeNum DECIMAL(4,0),
+	dateOrdered DATE,
+	dateDue DATE,
+	materialList ENUM('Metal Spoon', 'Plastic Spoon','Small Cup','Regular Cup','Large Cup','Small Cone','Regular Cone','Large Cone','Small Lid','Regular Lid','Large Lid')
 	);
 
 CREATE TABLE Production(
@@ -82,7 +89,7 @@ CREATE TABLE Customer(
 
 CREATE TABLE Stores(
 	storeNum DECIMAL(4,0) primary key,
-	sales DECIMAL(12,2),
+	sales DECIMAL(10,2),
 	city varchar(40)
 	);
 
@@ -97,5 +104,6 @@ ALTER TABLE GeneralManagers
 ALTER TABLE Hourly
 	add constraint
 	foreign key(storeNum) references Stores(storeNum);
+
 
 
