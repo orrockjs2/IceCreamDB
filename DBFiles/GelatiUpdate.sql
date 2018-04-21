@@ -77,6 +77,9 @@ INSERT INTO Stock VALUES (19, 'Coconut', 'flavor', 10,  "2018-11-24");
 INSERT INTO Stock VALUES (20, 'Butter Pecan', 'flavor', 10,  "2018-12-16");
 INSERT INTO Stock VALUES (21, 'Peanut Butter', 'flavor', 10,  "2018-10-26");
 
+-- Insert Production Data
+INSERT INTO Production VALUES(1), (2), (3), (4), (5);
+
 -- Insert FlavorOrder Data
 INSERT INTO FlavorOrder VALUES (1, 1, 1, "2018-04-15", "2018-04-29",'Chocolate');
 INSERT INTO FlavorOrder VALUES (2, 1, 1, "2018-04-01", "2018-04-15",'Vanilla');
