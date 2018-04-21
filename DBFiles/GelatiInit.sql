@@ -54,6 +54,7 @@ ALTER TABLE Clerical
 CREATE TABLE FlavorOrder(
 	orderNum DECIMAL(12,0) primary key,
 	storeNum DECIMAL(4,0),
+	facilityNum DECIMAL (4,0),
 	dateOrdered DATE,
 	dateDue DATE,
 	flavorList ENUM('Chocolate', 'Vanilla','Strawberry','Coffee','Cookie Dough','Oreo','Banana', 'Coconut','Butter Pecan', 'Peanut Butter')
@@ -62,6 +63,7 @@ CREATE TABLE FlavorOrder(
     CREATE TABLE MaterialOrder(
 	orderNum DECIMAL(12,0) primary key,
 	storeNum DECIMAL(4,0),
+	facilityNum DECIMAL(4,0),
 	dateOrdered DATE,
 	dateDue DATE,
 	materialList ENUM('Metal Spoon', 'Plastic Spoon','Small Cup','Regular Cup','Large Cup','Small Cone','Regular Cone','Large Cone','Small Lid','Regular Lid','Large Lid')
@@ -94,11 +96,19 @@ CREATE TABLE Stores(
 
 ALTER TABLE FlavorOrder
 	add constraint
-    foreign key(storeNum) references Stores(storeNum);
+	foreign key(storeNum) references Stores(storeNum);
+    
+ALTER TABLE FlavorOrder
+	add constraint
+    foreign key(facilityNum) references Production(facilityNum);
     
 ALTER TABLE MaterialOrder
 	add constraint
 	foreign key(storeNum) references Stores(storeNum);
+    
+ALTER TABLE MaterialOrder
+	add constraint
+	foreign key(facilityNum) references Production(facilityNum);
 
 ALTER TABLE GeneralManagers
 	add constraint
