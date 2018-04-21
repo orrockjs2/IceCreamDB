@@ -85,73 +85,113 @@ INSERT INTO Stock VALUES (19, 'Coconut', 'flavor', 10,  "2018-11-24");
 INSERT INTO Stock VALUES (20, 'Butter Pecan', 'flavor', 10,  "2018-12-16");
 INSERT INTO Stock VALUES (21, 'Peanut Butter', 'flavor', 10,  "2018-10-26");
 
-DROP TABLE FlavorOrder;
-CREATE TABLE FlavorOrder(
-	orderNum DECIMAL(12,0) primary key,
-	storeNum DECIMAL(4,0),
-	dateOrdered DATE,
-	dateDue DATE,
-	flavorList ENUM('Chocolate', 'Vanilla','Strawberry','Coffee','Cookie Dough','Oreo','Banana', 'Coconut','Butter Pecan', 'Peanut Butter')
-	);
 -- Insert FlavorOrder Data
 INSERT INTO FlavorOrder VALUES (1, 1, "2018-04-15", "2018-04-29",'Chocolate');
 INSERT INTO FlavorOrder VALUES (2, 1, "2018-04-01", "2018-04-15",'Vanilla');
 INSERT INTO FlavorOrder VALUES (3, 1, "2018-04-12", "2018-04-26",'Strawberry');
 INSERT INTO FlavorOrder VALUES (4, 1, "2018-04-13", "2018-04-27",'Coffee');
 INSERT INTO FlavorOrder VALUES (5, 1, "2018-04-23", "2018-05-27",'Cookie Dough');
-
 INSERT INTO FlavorOrder VALUES (6, 2, "2018-04-01", "2018-04-15",'Oreo');
 INSERT INTO FlavorOrder VALUES (7, 2, "2018-04-03", "2018-04-17",'Banana');
 INSERT INTO FlavorOrder VALUES (8, 2, "2018-04-06", "2018-04-20",'Coconut');
 INSERT INTO FlavorOrder VALUES (9, 2, "2018-04-24", "2018-05-08",'Butter Pecan');
 INSERT INTO FlavorOrder VALUES (10, 2, "2018-04-15", "2018-04-29",'Peanut Butter');
-
 INSERT INTO FlavorOrder VALUES (11, 3, "2018-04-16", "2018-04-30",'Chocolate');
 INSERT INTO FlavorOrder VALUES (12, 3, "2018-04-05", "2018-04-20",'Vanilla');
 INSERT INTO FlavorOrder VALUES (13, 3, "2018-04-22", "2018-05-06",'Strawberry');
 INSERT INTO FlavorOrder VALUES (14, 3, "2018-04-30", "2018-05-14",'Coffee');
 INSERT INTO FlavorOrder VALUES (15, 3, "2018-04-25", "2018-05-09",'Cookie Dough');
-
 INSERT INTO FlavorOrder VALUES (16, 4, "2018-04-26", "2018-05-10",'Oreo');
 INSERT INTO FlavorOrder VALUES (17, 4, "2018-04-27", "2018-05-11",'Banana');
 INSERT INTO FlavorOrder VALUES (18, 4, "2018-04-28", "2018-05-12",'Coconut');
 INSERT INTO FlavorOrder VALUES (19, 4, "2018-04-29", "2018-05-13",'Butter Pecan');
 INSERT INTO FlavorOrder VALUES (20, 4, "2018-04-04", "2018-04-18",'Peanut Butter');
-
 INSERT INTO FlavorOrder VALUES (21, 5, "2018-04-27", "2018-05-11",'Chocolate');
 INSERT INTO FlavorOrder VALUES (22, 5, "2018-04-07", "2018-04-21",'Vanilla');
 INSERT INTO FlavorOrder VALUES (23, 5, "2018-04-14", "2018-04-28",'Strawberry');
 INSERT INTO FlavorOrder VALUES (24, 5, "2018-04-08", "2018-04-22",'Coffee');
 INSERT INTO FlavorOrder VALUES (25, 5, "2018-04-03", "2018-04-17",'Cookie Dough');
-
 INSERT INTO FlavorOrder VALUES (26, 6, "2018-04-01", "2018-04-15",'Oreo');
 INSERT INTO FlavorOrder VALUES (27, 6, "2018-04-13", "2018-04-27",'Banana');
 INSERT INTO FlavorOrder VALUES (28, 6, "2018-04-15", "2018-04-29",'Coconut');
 INSERT INTO FlavorOrder VALUES (29, 6, "2018-04-03", "2018-04-17",'Butter Pecan');
 INSERT INTO FlavorOrder VALUES (30, 6, "2018-04-06", "2018-04-20",'Peanut Butter');
-
 INSERT INTO FlavorOrder VALUES (31, 7, "2018-04-02", "2018-04-16",'Chocolate');
 INSERT INTO FlavorOrder VALUES (32, 7, "2018-04-07", "2018-04-21",'Vanilla');
 INSERT INTO FlavorOrder VALUES (33, 7, "2018-04-13", "2018-04-27",'Strawberry');
 INSERT INTO FlavorOrder VALUES (34, 7, "2018-04-19", "2018-05-03",'Coffee');
 INSERT INTO FlavorOrder VALUES (35, 7,  "2018-04-30", "2018-05-14",'Cookie Dough');
-
 INSERT INTO FlavorOrder VALUES (36, 8, "2018-04-17", "2018-05-01",'Oreo');
 INSERT INTO FlavorOrder VALUES (37, 8, "2018-04-18", "2018-05-02",'Vanilla');
 INSERT INTO FlavorOrder VALUES (38, 8, "2018-04-15", "2018-04-29",'Coconut');
 INSERT INTO FlavorOrder VALUES (39, 8, "2018-04-16", "2018-04-30",'Butter Pecan');
 INSERT INTO FlavorOrder VALUES (40, 8, "2018-04-03", "2018-04-17",'Peanut Butter');
-
 INSERT INTO FlavorOrder VALUES (41, 9, "2018-04-06", "2018-04-20",'Chocolate');
 INSERT INTO FlavorOrder VALUES (42, 9, "2018-04-26", "2018-05-10",'Vanilla');
 INSERT INTO FlavorOrder VALUES (43, 9, "2018-04-01", "2018-04-15",'Strawberry');
 INSERT INTO FlavorOrder VALUES (44, 9, "2018-04-16", "2018-04-30",'Coffee');
 INSERT INTO FlavorOrder VALUES (45, 9, "2018-04-12", "2018-04-26",'Cookie Dough');
-
 INSERT INTO FlavorOrder VALUES (46, 10, "2018-04-10", "2018-04-24",'Oreo');
 INSERT INTO FlavorOrder VALUES (47, 10, "2018-04-23", "2018-04-07",'Vanilla');
 INSERT INTO FlavorOrder VALUES (48, 10, "2018-04-04", "2018-04-18",'Coconut');
 INSERT INTO FlavorOrder VALUES (49, 10, "2018-04-05", "2018-04-19",'Butter Pecan');
 INSERT INTO FlavorOrder VALUES (50, 10, "2018-04-16", "2018-04-30",'Peanut Butter');
 
+-- Insert MaterialOrder Data
+INSERT INTO MaterialOrder VALUES (1, 1, "2018-04-02", "2018-04-16",'Metal Spoon');
+INSERT INTO MaterialOrder VALUES (2, 1, "2018-04-15", "2018-04-29",'Plastic Spoon');
+INSERT INTO MaterialOrder VALUES (3, 1, "2018-04-20", "2018-05-04",'Small Cup');
+INSERT INTO MaterialOrder VALUES (4, 1, "2018-04-12", "2018-04-26",'Regular Cup');
+INSERT INTO MaterialOrder VALUES (5, 1, "2018-04-10", "2018-04-24",'Large Cup');
+INSERT INTO MaterialOrder VALUES (6, 2, "2018-04-09", "2018-04-23",'Small Cone');
+INSERT INTO MaterialOrder VALUES (7, 2, "2018-04-06", "2018-04-20",'Regular Cone');
+INSERT INTO MaterialOrder VALUES (8, 2, "2018-04-21", "2018-05-05",'Large Cone');
+INSERT INTO MaterialOrder VALUES (9, 2, "2018-04-09", "2018-04-23",'Small Lid');
+INSERT INTO MaterialOrder VALUES (10, 2, "2018-04-20", "2018-05-04",'Regular Lid');
+INSERT INTO MaterialOrder VALUES (11, 3, "2018-04-14", "2018-04-28",'Metal Spoon');
+INSERT INTO MaterialOrder VALUES (12, 3, "2018-04-08", "2018-04-22",'Large Lid');
+INSERT INTO MaterialOrder VALUES (13, 3, "2018-04-17", "2018-05-01",'Small Cup');
+INSERT INTO MaterialOrder VALUES (14, 3, "2018-04-30", "2018-05-14",'Regular Cup');
+INSERT INTO MaterialOrder VALUES (15, 3, "2018-04-03", "2018-04-17",'Large Cup');
+INSERT INTO MaterialOrder VALUES (16, 4, "2018-04-11", "2018-04-25",'Small Cone');
+INSERT INTO MaterialOrder VALUES (17, 4, "2018-04-20", "2018-05-04",'Regular Cone');
+INSERT INTO MaterialOrder VALUES (18, 4, "2018-04-08", "2018-04-22",'Large Cone');
+INSERT INTO MaterialOrder VALUES (19, 4, "2018-04-13", "2018-04-27",'Small Lid');
+INSERT INTO MaterialOrder VALUES (20, 4, "2018-04-23", "2018-05-07",'Regular Lid');
+INSERT INTO MaterialOrder VALUES (21, 5, "2018-04-12", "2018-04-26",'Metal Spoon');
+INSERT INTO MaterialOrder VALUES (22, 5, "2018-04-09", "2018-04-23",'Plastic Spoon');
+INSERT INTO MaterialOrder VALUES (23, 5, "2018-04-11", "2018-04-25",'Large Lid');
+INSERT INTO MaterialOrder VALUES (24, 5, "2018-04-23", "2018-05-07",'Regular Cup');
+INSERT INTO MaterialOrder VALUES (25, 5, "2018-04-30", "2018-05-13",'Large Cup');
+INSERT INTO MaterialOrder VALUES (26, 6, "2018-04-12", "2018-04-26",'Small Cone');
+INSERT INTO MaterialOrder VALUES (27, 6, "2018-04-08", "2018-04-22",'Regular Cone');
+INSERT INTO MaterialOrder VALUES (28, 6, "2018-04-28", "2018-05-12",'Large Cone');
+INSERT INTO MaterialOrder VALUES (29, 6, "2018-04-17", "2018-05-01",'Small Lid');
+INSERT INTO MaterialOrder VALUES (30, 6, "2018-04-16", "2018-04-30",'Regular Lid');
+INSERT INTO MaterialOrder VALUES (31, 7, "2018-04-06", "2018-04-20",'Large Lid');
+INSERT INTO MaterialOrder VALUES (32, 7, "2018-04-15", "2018-04-29",'Plastic Spoon');
+INSERT INTO MaterialOrder VALUES (33, 7, "2018-04-24", "2018-05-08",'Small Cup');
+INSERT INTO MaterialOrder VALUES (34, 7, "2018-04-12", "2018-04-26",'Regular Cup');
+INSERT INTO MaterialOrder VALUES (35, 7, "2018-04-10", "2018-04-24",'Large Lid');
+INSERT INTO MaterialOrder VALUES (36, 8, "2018-04-06", "2018-04-20",'Small Cone');
+INSERT INTO MaterialOrder VALUES (37, 8, "2018-04-16", "2018-04-30",'Large Lid');
+INSERT INTO MaterialOrder VALUES (38, 8, "2018-04-11", "2018-04-25",'Large Cone');
+INSERT INTO MaterialOrder VALUES (39, 8, "2018-04-07", "2018-05-21",'Small Lid');
+INSERT INTO MaterialOrder VALUES (40, 8, "2018-04-05", "2018-04-19",'Regular Lid');
+INSERT INTO MaterialOrder VALUES (41, 9, "2018-04-01", "2018-04-15",'Metal Spoon');
+INSERT INTO MaterialOrder VALUES (42, 9, "2018-04-18", "2018-05-02",'Large Lid');
+INSERT INTO MaterialOrder VALUES (43, 9, "2018-04-13", "2018-04-27",'Small Cup');
+INSERT INTO MaterialOrder VALUES (44, 9, "2018-04-15", "2018-04-29",'Regular Cup');
+INSERT INTO MaterialOrder VALUES (45, 9, "2018-04-10", "2018-04-24",'Large Cup');
+INSERT INTO MaterialOrder VALUES (46, 10, "2018-04-09", "2018-04-23",'Small Cone');
+INSERT INTO MaterialOrder VALUES (47, 10, "2018-04-20", "2018-05-04",'Regular Cone');
+INSERT INTO MaterialOrder VALUES (48, 10, "2018-04-12", "2018-04-26",'Large Cone');
+INSERT INTO MaterialOrder VALUES (49, 10, "2018-04-04", "2018-05-18",'Small Lid');
+INSERT INTO MaterialOrder VALUES (50, 10, "2018-04-06", "2018-04-20",'Regular Lid');
 
+-- Insert Production Data
+INSERT INTO Production Values(01);
+INSERT INTO Production Values(02);
+INSERT INTO Production Values(03);
+INSERT INTO Production Values(04);
+INSERT INTO Production Values(05);
