@@ -37,16 +37,19 @@ CREATE TABLE Clerical(
 
 ALTER TABLE GeneralManagers
 	add constraint
-	foreign key(eid) references Employees(eid);
+	foreign key(eid) references Employees(eid)
+    ON DELETE CASCADE;
 
 ALTER TABLE Hourly
 	add constraint 
-	foreign key(eid) references Employees(eid);
+	foreign key(eid) references Employees(eid)
+    ON DELETE CASCADE;
 
 ALTER TABLE Clerical
 	add constraint
-	foreign key(eid) references Employees(eid);
-
+	foreign key(eid) references Employees(eid)
+    ON DELETE CASCADE;
+    
 CREATE TABLE FlavorOrder(
 	orderNum INT(12) primary key NOT NULL AUTO_INCREMENT,
 	storeNum INT(4),
