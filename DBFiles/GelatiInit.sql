@@ -1,37 +1,33 @@
--- Designed for first time database initialization of the Gelati database on a local machine.
--- ONLY USE FOR FIRST TIME SETUP
--- Does not populate tables, only creates them
--- Be sure to use DROP DATABASE Gelati; if you want to reset all data
--- Scotty Orrock
+DROP DATABASE Gelati;
 
 CREATE DATABASE Gelati;
 
 USE Gelati;
 
 CREATE TABLE Employees(
-	eid INT (9) primary key,
+	eid INT (9) NOT NULL primary key AUTO_INCREMENT,
 	employeeName varchar(30),
 	employeeAddr varchar(50),
 	employeePhone varchar(20)
 	);
 
 CREATE TABLE GeneralManagers(
-	eid INT (9),
-	storeNum INT(4),
+	eid INT (9)NOT NULL,
+	storeNum INT(4)NOT NULL,
 	salary DECIMAL(8,2),
 	vacationDays DECIMAL (2,0)
 	);
 
 CREATE TABLE Hourly(
-	eid INT (9),
-	storeNum INT(4),
+	eid INT (9)NOT NULL,
+	storeNum INT(4)NOT NULL,
 	wage DECIMAL(4,2),
 	hoursWorked DECIMAL(5,2)
 	);
 
 CREATE TABLE Clerical(
-	eid INT (9),
-	facilityNum DECIMAL(4,0),
+	eid INT (9)NOT NULL ,
+	facilityNum INT(4)NOT NULL,
 	jobTitle varchar(30),
 	salary DECIMAL(8,2),
 	NDAStatus ENUM('yes', 'no'),
@@ -52,7 +48,7 @@ ALTER TABLE Clerical
 	foreign key(eid) references Employees(eid);
 
 CREATE TABLE FlavorOrder(
-	orderNum DECIMAL(12,0) primary key,
+	orderNum INT(12) primary key NOT NULL AUTO_INCREMENT,
 	storeNum INT(4),
 	facilityNum INT (4),
 	dateOrdered DATE,
@@ -61,7 +57,7 @@ CREATE TABLE FlavorOrder(
 	);
     
     CREATE TABLE MaterialOrder(
-	orderNum DECIMAL(12,0) primary key,
+	orderNum INT(12) primary key NOT NULL AUTO_INCREMENT,
 	storeNum INT(4),
 	facilityNum INT(4),
 	dateOrdered DATE,
@@ -70,7 +66,7 @@ CREATE TABLE FlavorOrder(
 	);
 
 CREATE TABLE Production(
-	facilityNum INT (4) primary key
+	facilityNum INT (4) primary key NOT NULL AUTO_INCREMENT
 	);
 
 CREATE TABLE Stock(
@@ -82,14 +78,14 @@ CREATE TABLE Stock(
 	);
 
 CREATE TABLE Customer(
-	loyaltyID DECIMAL(9,0) primary key,
+	loyaltyID INT(9) primary key NOT NULL AUTO_INCREMENT,
 	favoriteFlavor varchar(30),
 	custName varchar(30),
 	visitCount DECIMAL(4,0)
 	);
 
 CREATE TABLE Stores(
-	storeNum INT(4) primary key,
+	storeNum INT(4) primary key NOT NULL AUTO_INCREMENT,
 	sales DECIMAL(12,2),
 	city varchar(40)
 	);
