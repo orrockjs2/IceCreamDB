@@ -9,28 +9,28 @@ CREATE DATABASE Gelati;
 USE Gelati;
 
 CREATE TABLE Employees(
-	eid DECIMAL (9,0) primary key,
+	eid INT (9) primary key,
 	employeeName varchar(30),
 	employeeAddr varchar(50),
 	employeePhone varchar(20)
 	);
 
 CREATE TABLE GeneralManagers(
-	eid DECIMAL(9,0),
+	eid INT (9),
 	storeNum DECIMAL(4,0),
 	salary DECIMAL(8,2),
 	vacationDays DECIMAL (2,0)
 	);
 
 CREATE TABLE Hourly(
-	eid DECIMAL(9,0),
+	eid INT (9),
 	storeNum DECIMAL(4,0),
 	wage DECIMAL(4,2),
 	hoursWorked DECIMAL(5,2)
 	);
 
 CREATE TABLE Clerical(
-	eid DECIMAL(9,0),
+	eid INT (9),
 	facilityNum DECIMAL(4,0),
 	jobTitle varchar(30),
 	salary DECIMAL(8,2),
