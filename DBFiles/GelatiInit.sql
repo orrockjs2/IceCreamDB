@@ -17,14 +17,14 @@ CREATE TABLE Employees(
 
 CREATE TABLE GeneralManagers(
 	eid INT (9),
-	storeNum DECIMAL(4,0),
+	storeNum INT(4),
 	salary DECIMAL(8,2),
 	vacationDays DECIMAL (2,0)
 	);
 
 CREATE TABLE Hourly(
 	eid INT (9),
-	storeNum DECIMAL(4,0),
+	storeNum INT(4),
 	wage DECIMAL(4,2),
 	hoursWorked DECIMAL(5,2)
 	);
@@ -53,8 +53,8 @@ ALTER TABLE Clerical
 
 CREATE TABLE FlavorOrder(
 	orderNum DECIMAL(12,0) primary key,
-	storeNum DECIMAL(4,0),
-	facilityNum DECIMAL (4,0),
+	storeNum INT(4),
+	facilityNum INT (4),
 	dateOrdered DATE,
 	dateDue DATE,
 	flavorList ENUM('Chocolate', 'Vanilla','Strawberry','Coffee','Cookie Dough','Oreo','Banana', 'Coconut','Butter Pecan', 'Peanut Butter')
@@ -62,15 +62,15 @@ CREATE TABLE FlavorOrder(
     
     CREATE TABLE MaterialOrder(
 	orderNum DECIMAL(12,0) primary key,
-	storeNum DECIMAL(4,0),
-	facilityNum DECIMAL(4,0),
+	storeNum INT(4),
+	facilityNum INT(4),
 	dateOrdered DATE,
 	dateDue DATE,
 	materialList ENUM('Metal Spoon', 'Plastic Spoon','Small Cup','Regular Cup','Large Cup','Small Cone','Regular Cone','Large Cone','Small Lid','Regular Lid','Large Lid')
 	);
 
 CREATE TABLE Production(
-	facilityNum DECIMAL (4,0) primary key
+	facilityNum INT (4) primary key
 	);
 
 CREATE TABLE Stock(
@@ -89,7 +89,7 @@ CREATE TABLE Customer(
 	);
 
 CREATE TABLE Stores(
-	storeNum DECIMAL(4,0) primary key,
+	storeNum INT(4) primary key,
 	sales DECIMAL(12,2),
 	city varchar(40)
 	);
