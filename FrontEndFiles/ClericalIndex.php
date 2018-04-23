@@ -66,7 +66,7 @@
                                         echo "<td>" . $row['NDAStatus'] . "</td>";
                                         echo "<td>" . $row['vacationDays'] . "</td>";
                                         echo "<td>";
-                                            echo "<a href='update.php?eid=". $row['eid'] ."' title='Update Record' data-toggle='tooltip'><span class='glyphicon glyphicon-pencil'></span></a>";
+                                            echo "<a href='UpdateClerical.php?eid=". $row['eid'] ."' title='Update Record' data-toggle='tooltip'><span class='glyphicon glyphicon-pencil'></span></a>";
                                             echo "<a href='delete.php?eid=". $row['eid'] ."' title='Delete Record' data-toggle='tooltip'><span class='glyphicon glyphicon-trash'></span></a>";
                                         echo "</td>";
                                     echo "</tr>";
