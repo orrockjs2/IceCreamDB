@@ -12,21 +12,21 @@ CREATE TABLE Employees(
 	);
 
 CREATE TABLE GeneralManagers(
-	eid INT (9)NOT NULL,
+	eid INT (9)NOT NULL primary key AUTO_INCREMENT,
 	storeNum INT(4)NOT NULL,
 	salary DECIMAL(8,2),
 	vacationDays DECIMAL (2,0)
 	);
 
 CREATE TABLE Hourly(
-	eid INT (9)NOT NULL,
+	eid INT (9)NOT NULL primary key AUTO_INCREMENT,
 	storeNum INT(4)NOT NULL,
 	wage DECIMAL(4,2),
 	hoursWorked DECIMAL(5,2)
 	);
 
 CREATE TABLE Clerical(
-	eid INT (9)NOT NULL ,
+	eid INT (9)NOT NULL primary key AUTO_INCREMENT ,
 	facilityNum INT(4)NOT NULL,
 	jobTitle varchar(30),
 	salary DECIMAL(8,2),
@@ -79,6 +79,7 @@ CREATE TABLE Stock(
 
 CREATE TABLE Customer(
 	loyaltyID INT(9) primary key NOT NULL AUTO_INCREMENT,
+    storeNum INT(4),
 	favoriteFlavor varchar(30),
 	custName varchar(30),
 	visitCount DECIMAL(4,0)
