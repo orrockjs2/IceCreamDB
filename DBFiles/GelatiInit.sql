@@ -4,6 +4,13 @@ CREATE DATABASE Gelati;
 
 USE Gelati;
 
+CREATE TABLE Users(
+	id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    user VARCHAR(50) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+	);
+
 CREATE TABLE Employees(
 	eid INT (9) NOT NULL primary key AUTO_INCREMENT,
 	employeeName varchar(30),
