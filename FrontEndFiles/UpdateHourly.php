@@ -53,7 +53,7 @@ if(isset($_POST["eid"]) && !empty($_POST["eid"])){
             // Attempt to execute the prepared statement
             if(mysqli_stmt_execute($stmt)){
                 // Records updated successfully. Redirect to landing page
-                header("location: HourlyIndex.php");
+                header("location: index.php");
                 exit();
             } else{
                 echo "Something went wrong. Please try again later.";

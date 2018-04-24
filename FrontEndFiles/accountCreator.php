@@ -11,7 +11,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $username_err = "Do not leave field blank.";
     } else{
         // Prepare a select statement
-        $sql = "SELECT id FROM Admin WHERE username = ?";
+        $sql = "SELECT id FROM Users WHERE username = ?";
         
         if($stmt = mysqli_prepare($link, $sql)){
             mysqli_stmt_bind_param($stmt, "s", $param_username);
@@ -57,7 +57,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     if(empty($username_err) && empty($password_err) && empty($confirm_password_err)){
         
         //insert query
-        $sql = "INSERT INTO Admin (username, password) VALUES (?, ?)";
+        $sql = "INSERT INTO Users (username, password) VALUES (?, ?)";
          
         if($stmt = mysqli_prepare($link, $sql)){
             mysqli_stmt_bind_param($stmt, "ss", $param_username, $param_password);

@@ -3,8 +3,8 @@
 require_once 'config.php';
  
 // Define variables and initialize with empty values
-$facilityNum = $jobTitle = $salary = $NDAStatus = $vacationDays = "";
-$facility_err = $title_err= $salary_err = $NDA_err = $vacation_err = "";
+$storeNum = $salary = $vacationDays = "";
+$store_err = $salary_err = $vacation_err = "";
  
 // Processing form data when form is submitted
 if(isset($_POST["eid"]) && !empty($_POST["eid"])){
@@ -12,7 +12,7 @@ if(isset($_POST["eid"]) && !empty($_POST["eid"])){
     $eid = $_POST["eid"];
 
     
-   // Validate storeNum
+   // Validate store
     $input_store = trim($_POST["storeNum"]);
     if(empty($input_store)){
         $store_err = 'Please enter a store number.';     
@@ -28,6 +28,7 @@ if(isset($_POST["eid"]) && !empty($_POST["eid"])){
         $salary = $input_salary;
     }
     
+       
     //Validate vacation
     $input_vacation = trim($_POST["vacationDays"]);
     if(empty($input_vacation)){
@@ -39,25 +40,26 @@ if(isset($_POST["eid"]) && !empty($_POST["eid"])){
     // Check input errors before inserting in database
     if(empty($store_err) && empty($salary_err) && empty($vacation_err)){
         // Prepare an update statement
-        $sql = "UPDATE GeneralManagers SET storeNum=?, salary=?, vacationDays=? WHERE eid=?";
+        $sql = " UPDATE GeneralManagers SET storeNum=?, salary=?, vacationDays=? WHERE eid=?;";
          
         if($stmt = mysqli_prepare($link, $sql)){
             // Bind variables to the prepared statement as parameters
-            mysqli_stmt_bind_param($stmt, "issi", $param_store, $param_salary, $param_vacation, $param_eid);
+            mysqli_stmt_bind_param($stmt, "sssi", $param_storeNum, $param_salary, $param_vacation, $param_eid);
             
             // Set parameters
-            $param_eid = $eid;
-            $param_storeNum = $storeNum;
+            $param_store = $storeNum;
             $param_salary = $salary;
             $param_vacation = $vacationDays;
+            $param_eid = $eid;
             
             // Attempt to execute the prepared statement
             if(mysqli_stmt_execute($stmt)){
                 // Records updated successfully. Redirect to landing page
-                header("location: GMindex.php");
+                header("location: index.php");
+                echo "Update Successful!";
                 exit();
             } else{
-                echo "Something went wrong. Please try again later.";
+                echo "Something went wrong. Please try again later. $eid" ;
             }
         }
          
@@ -153,7 +155,7 @@ if(isset($_POST["eid"]) && !empty($_POST["eid"])){
                         </div>
                         <div class="form-group <?php echo (!empty($vacation_err)) ? 'has-error' : ''; ?>">
                             <label>Vacation Days</label>
-                            <input type="text" name="vacationDays" class="form-control" value="<?php echo $vacationDays; ?>">
+                            <input type="number" name="vacationDays" class="form-control" value="<?php echo $vacationDays; ?>">
                             <span class="help-block"><?php echo $vacation_err;?></span>
                         </div>
                         <input type="hidden" name="eid" value="<?php echo $eid; ?>"/>
